@@ -1,8 +1,22 @@
 <!DOCTYPE html>
-<html lang="id"><head><meta charset="utf-8"><title>UNIT B</title>
+<html lang="id"><head><meta charset="utf-8"><title>Administrasi Publik 25 Umuslim | Unit B</title>
+<meta name="description" content="Website resmi Administrasi Publik 25 Umuslim Unit B: anggota kelas, visi misi, dan kegiatan kami.">
+<meta name="keywords" content="Administrasi Publik 25 Umuslim, Administrasi Publik 25, Unit B, Umuslim, kelas Administrasi Publik">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#f2f2f0">
+<meta property="og:type" content="website"><meta property="og:locale" content="id_ID">
+<meta property="og:site_name" content="Administrasi Publik 25 Umuslim">
+<meta property="og:title" content="Administrasi Publik 25 Umuslim | Unit B">
+<meta property="og:description" content="Anggota kelas, visi misi, dan kegiatan Administrasi Publik 25 Umuslim Unit B.">
+<meta name="twitter:card" content="summary">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src https://iivavouxbutqezdwdxnz.supabase.co wss://iivavouxbutqezdwdxnz.supabase.co; object-src 'none'; base-uri 'none'; form-action 'none'">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Administrasi Publik 25 Umuslim","alternateName":["Administrasi Publik 25 Unit B","AP25 Umuslim","Unit B"],"inLanguage":"id"}</script>
+
 <meta name="color-scheme" content="light"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap">
 <style>
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 :root{--bg:#f2f2f0;--br:#fff;--wm:#16130f;--rd:#c8321f;--mu:#7b756c;--o1:#f3c9b8;--o2:#e2e2de;--ln:#16130f26;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box;margin:0}html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-stopped{overflow:hidden}html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-webkit-tap-highlight-color:transparent;background:var(--bg);color:var(--wm);font:400 16px/1.6 'DM Sans',system-ui,sans-serif;overflow-x:hidden}
@@ -88,6 +102,7 @@ footer{position:relative;z-index:2;text-align:center;padding:10vh 5vw 14vh}foote
 #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--wm);color:var(--bg);padding:10px 18px;border-radius:99px;z-index:120;opacity:0;pointer-events:none}
 @media(max-width:800px){.vm,.ke,.mg,.mg.alt,.mg.lead figcaption{grid-template-columns:1fr}.ke:nth-child(even) .kc2,.mg.alt .rev{order:0}.mb{grid-template-columns:1fr}.mg.lead .rev{aspect-ratio:4/3}}
 </style></head><body>
+<p class="sr">Administrasi Publik 25 Umuslim - Unit B. Website kelas: anggota, visi misi, dan kegiatan.</p>
 <div id="bgfx"></div><div id="pg"></div><div id="glow"></div>
 <button class="av" data-login aria-label="Masuk admin"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8z"/></svg></button>
 <div id="orbw"><div class="orb"></div></div>
@@ -109,14 +124,15 @@ gsap.registerPlugin(ScrollTrigger);
 /* ===== KONFIGURASI ===== */
 const MEMBERS=['Alifah Mumtazah','Difa Amelia','Faradisa Salsabila','Fatia Tunnisa','Kafka Nafisa','Muhammad Adam Sanjaya','Munira Muhirah','Nadia Riska Salsabila','Nadira Raysa','Nargis Fidella','Naysya Dilla Kinaya','Putri Audya','Putri Balqis','Tina Fitriana','Tri Andini'];
 const ROLE={'Muhammad Adam Sanjaya':'Komting','Faradisa Salsabila':'Bendahara','Nargis Fidella':'Sekretaris'};
-const USER='Admin',PASS='Unitb2025';
+const ADMIN_EMAIL='unitb25@ap25umuslim.com',MAIL_DOM='@ap25umuslim.com';
 const SB_URL='https://iivavouxbutqezdwdxnz.supabase.co';
 const SB_KEY='sb_publishable_IAxERLMZlPD9y6igM07IeQ_ZY6prkJN';
-const sb=supabase.createClient(SB_URL,SB_KEY);
+let AUTH_STORE;try{AUTH_STORE=window.sessionStorage}catch(e){}
+const sb=supabase.createClient(SB_URL,SB_KEY,{auth:{storage:AUTH_STORE,persistSession:!!AUTH_STORE,autoRefreshToken:true,detectSessionInUrl:false}});
 /* ===== DATA ===== */
 const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-let ADM=false;try{ADM=sessionStorage.getItem('ub-adm')==='1'}catch(e){}
+let ADM=false;
 let S={};try{S=JSON.parse(localStorage.getItem('ub-v2')||localStorage.getItem('ub-v1'))||{}}catch(e){S={}}
 S.m=S.m||{};S.b=S.b||{};S.g=S.g||{};
 S.v=S.v||{visi:'Menjadi unit yang kompak, berintegritas, dan berkarya bersama untuk pelayanan publik yang lebih baik. (Klik teks ini saat mode admin untuk mengubah.)',misi:['Membangun kolaborasi yang saling menguatkan antar anggota.','Menjalankan kegiatan yang bermanfaat bagi kampus dan masyarakat.','Mendokumentasikan setiap langkah agar menjadi cerita yang berkesan.']};
@@ -128,8 +144,10 @@ const save=()=>{
   try{localStorage.setItem('ub-v2',JSON.stringify(S))}catch(e){toast('Penyimpanan lokal penuh, hapus beberapa foto')}
   clearTimeout(saveTimer);
   saveTimer=setTimeout(async()=>{
-    const {error}=await sb.from('unit_data').update({payload:S,updated_at:new Date().toISOString()}).eq('id','main');
-    if(error)toast('Gagal sinkron ke database Supabase');
+    if(!ADM)return;
+    const {data,error}=await sb.from('unit_data').update({payload:S,updated_at:new Date().toISOString()}).eq('id','main').select('id');
+    if(error)toast(error.code==='42501'||error.status===401||error.status===403?'Sesi admin habis, silakan masuk lagi':'Gagal sinkron ke database Supabase');
+    else if(!data||!data.length)toast('Perubahan tidak tersimpan di database (cek login admin / pengaturan keamanan Supabase)');
   },600);
 };
 async function loadCloud(){
@@ -143,7 +161,9 @@ async function loadCloud(){
   buildTeam();renderVisi(false);renderKeg(false);teamAnim();ScrollTrigger.refresh();
 }
 const bg=i=>`linear-gradient(145deg,hsl(${18+(i*9)%24} 14% ${88-(i*3)%9}%),hsl(28 10% ${74-(i*2)%6}%))`;
-const sty=(img,i)=>img?`background-image:url('${img}')`:`background-image:${bg(i)}`;
+const okImg=u=>typeof u==='string'&&u.startsWith('data:image/')&&!/['"()\\\s]/.test(u.slice(0,200));
+const gs=s=>String(s||'').replace(/[^A-Za-z0-9._]/g,'').slice(0,30);
+const sty=(img,i)=>okImg(img)?`background-image:url('${img}')`:`background-image:${bg(i)}`;
 const sp=t=>t.split(' ').map(w=>`<span class="w">${[...w].map(c=>`<i>${esc(c)}</i>`).join('')}</span>`).join(' ');
 const ini=n=>n.split(' ').slice(0,2).map(x=>x[0]).join('');
 const shrink=(file,ar)=>new Promise(r=>{const rd=new FileReader;rd.onload=()=>{const im=new Image;im.onload=()=>{let sx=0,sy=0,sw=im.width,sh=im.height;if(ar){if(sw/sh>ar){sw=sh*ar;sx=(im.width-sw)/2}else{sh=sw/ar;sy=(im.height-sh)*.2}}const k=Math.min(1,1000/Math.max(sw,sh)),c=document.createElement('canvas');c.width=sw*k;c.height=sh*k;c.getContext('2d').drawImage(im,sx,sy,sw,sh,0,0,c.width,c.height);r(c.toDataURL('image/jpeg',.78))};im.src=rd.result};rd.readAsDataURL(file)});
@@ -196,7 +216,7 @@ document.addEventListener('keydown',kd);$('.bkm',m).onclick=close;m.onclick=e=>e
 const ask=msg=>new Promise(r=>{const o=modal(`<div class="tx"><h2 style="font-size:30px">${esc(msg)}</h2><div class="pn"><button class="btn r" id="y">Ya</button><button class="btn" id="n">Batal</button></div></div>`,'lm');$('#y',o.b).onclick=()=>{r(true);o.close()};$('#n',o.b).onclick=()=>{r(false);o.close()};o.onclose=()=>r(false)});
 function openMember(card){const i=+card.dataset.i,n=MEMBERS[i],ce=ADM?'contenteditable="true"':'',g=(S.g[i]||'').replace('@','');
 const IG='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>';
-const o=modal(`<div class="im" style="${sty(S.m[i],i)}">${S.m[i]?'':ini(n)}</div><div class="tx"><small>${ROLE[n]||'Anggota'}</small><h2>${esc(n)}</h2><p class="d" id="bo" ${ce} data-ph="Tulis deskripsi diri...">${esc(ADM?(S.b[i]||''):(S.b[i]||'Belum ada deskripsi.'))}</p><div class="igr">${ADM?`<span class="igi">${IG}</span><b id="ig" contenteditable="true" data-ph="username instagram">${esc(g)}</b>`:g?`<a class="igl" target="_blank" rel="noopener" href="https://instagram.com/${esc(g)}" aria-label="Instagram ${esc(g)}">${IG}</a>`:''}</div><button class="btn ao" id="chg">Ganti foto</button></div>`,'mm',true);
+const o=modal(`<div class="im" style="${sty(S.m[i],i)}">${S.m[i]?'':ini(n)}</div><div class="tx"><small>${ROLE[n]||'Anggota'}</small><h2>${esc(n)}</h2><p class="d" id="bo" ${ce} data-ph="Tulis deskripsi diri...">${esc(ADM?(S.b[i]||''):(S.b[i]||'Belum ada deskripsi.'))}</p><div class="igr">${ADM?`<span class="igi">${IG}</span><b id="ig" contenteditable="true" data-ph="username instagram">${esc(g)}</b>`:g?`<a class="igl" target="_blank" rel="noopener" href="https://instagram.com/${esc(gs(g))}" aria-label="Instagram ${esc(g)}">${IG}</a>`:''}</div><button class="btn ao" id="chg">Ganti foto</button></div>`,'mm',true);
 const {m,b}=o,im=$('.im',b),tx=$$('.tx > *',b);gsap.set(b,{opacity:0});gsap.set([...tx,$('.bkm',b)],{opacity:0});
 const r=card.getBoundingClientRect(),t=im.getBoundingClientRect(),c=card.cloneNode(true);document.body.append(c);
 gsap.set(c,{position:'fixed',left:r.left,top:r.top,width:r.width,height:r.height,margin:0,zIndex:95,rotationX:0,rotationY:0,scale:1,opacity:1,y:0,x:0,transformPerspective:1000,pointerEvents:'none'});card.style.visibility='hidden';
@@ -207,13 +227,31 @@ gsap.timeline().to($('h4',c),{opacity:0,duration:.25},0).to(c,{left:t.left,top:t
 $('#chg',b).onclick=async()=>{const [u]=await pickFiles(false,3/4);if(!u)return;S.m[i]=u;save();im.style.backgroundImage=`url('${u}')`;im.textContent='';const t=$('.im',card);t.style.backgroundImage=`url('${u}')`;t.textContent=''};
 if(ADM){$('#bo',b).oninput=e=>{S.b[i]=e.target.textContent;save()};$('#ig',b).oninput=e=>{S.g[i]=e.target.textContent.trim();save()}}}
 /* ===== LOGIN ===== */
-function setAdm(v){ADM=v;document.body.classList.toggle('adm',v);try{sessionStorage.setItem('ub-adm',v?'1':'')}catch(e){}renderVisi(false);renderKeg(false)}
-function loginM(){if(ADM){const o=modal(`<div class="tx"><small>ADMIN</small><h2 style="font-size:34px">Keluar dari mode admin?</h2><div class="pn"><button class="btn r" id="y">Keluar</button><button class="btn" id="n">Batal</button></div></div>`,'lm');$('#y',o.b).onclick=()=>{setAdm(false);o.close();toast('Keluar dari mode admin')};$('#n',o.b).onclick=o.close;return}
+let idleT;const IDLE=15*60*1000;
+function armIdle(){clearTimeout(idleT);if(ADM)idleT=setTimeout(async()=>{await doLogout();toast('Sesi admin berakhir karena tidak aktif')},IDLE)}
+['pointerdown','keydown','scroll','touchstart'].forEach(n=>addEventListener(n,armIdle,{passive:true}));
+async function doLogout(){try{await sb.auth.signOut()}catch(e){}if(ADM)setAdm(false)}
+function setAdm(v){ADM=v;document.body.classList.toggle('adm',v);armIdle();renderVisi(false);renderKeg(false)}
+async function restoreAdm(){try{const {data}=await sb.auth.getSession();if(data&&data.session&&data.session.user.email===ADMIN_EMAIL)setAdm(true);else if(data&&data.session)await sb.auth.signOut()}catch(e){}}
+sb.auth.onAuthStateChange(ev=>{if(ev==='SIGNED_OUT'&&ADM)setAdm(false)});
+/* kunci percobaan login di perangkat ini: 1x salah = 1 menit, 2x = 10 menit, 3x+ = 24 jam */
+const LK='ub-lk',lkGet=()=>{try{return JSON.parse(localStorage.getItem(LK))||{n:0,u:0}}catch(e){return{n:0,u:0}}},lkSet=o=>{try{localStorage.setItem(LK,JSON.stringify(o))}catch(e){}};
+const lkText=ms=>{const s=Math.ceil(ms/1000);return s>=3600?Math.ceil(s/3600)+' jam':s>=60?Math.ceil(s/60)+' menit':s+' detik'};
+function loginM(){if(ADM){const o=modal(`<div class="tx"><small>ADMIN</small><h2 style="font-size:34px">Keluar dari mode admin?</h2><div class="pn"><button class="btn r" id="y">Keluar</button><button class="btn" id="n">Batal</button></div></div>`,'lm');$('#y',o.b).onclick=async()=>{await doLogout();o.close();toast('Keluar dari mode admin')};$('#n',o.b).onclick=o.close;return}
 const o=modal(`<div class="tx"><small>ADMIN</small><h2>Masuk</h2><label class="fl"><span>Username</span><input id="lu" type="text" placeholder="Username" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false"></label><label class="fl"><span>Password</span><input id="lp" type="password" placeholder="Password" autocomplete="current-password"></label><p class="d" id="le" role="alert" style="color:var(--rd);font-weight:700"></p><button type="button" class="btn r" id="lg">Masuk</button></div>`,'lm'),b=o.b;
-const go=()=>{const u=$('#lu',b).value.trim(),p=$('#lp',b).value.trim(),er=$('#le',b);let m='';
-if(!u&&!p)m='Isi username dan password dulu.';else{const ub=u.toLowerCase()===USER.toLowerCase(),pb=p===PASS;if(!ub&&!pb)m='Username dan password salah.';else if(!ub)m='Username salah.';else if(!pb)m='Password salah.'}
-if(m){er.textContent=m;gsap.fromTo(b,{x:-12},{x:0,duration:.5,ease:'elastic.out(1,.3)',clearProps:'transform'});return}
-setAdm(true);o.close();toast('Berhasil masuk sebagai admin')};
+let busy=false;
+const go=async()=>{if(busy)return;const u=$('#lu',b).value.trim(),p=$('#lp',b).value.trim(),er=$('#le',b),bt=$('#lg',b);
+const fail=m=>{er.textContent=m;gsap.fromTo(b,{x:-12},{x:0,duration:.5,ease:'elastic.out(1,.3)',clearProps:'transform'})};
+if(!u||!p)return fail('Isi username dan password dulu.');
+const lk=lkGet(),now=Date.now();if(now<lk.u)return fail('Terlalu banyak percobaan. Coba lagi dalam '+lkText(lk.u-now)+'.');
+busy=true;bt.disabled=true;er.textContent='';
+let ok=false;
+try{const em=u.toLowerCase()==='unitb25'?ADMIN_EMAIL:u.toLowerCase().replace(/[^a-z0-9]/g,'').slice(0,40)+MAIL_DOM;
+const {data,error}=await sb.auth.signInWithPassword({email:em,password:p});
+if(!error&&data&&data.user&&data.user.email===ADMIN_EMAIL)ok=true;else if(!error)await sb.auth.signOut()}catch(e){}
+busy=false;bt.disabled=false;
+if(!ok){const n=lk.n+1,w=n===1?60e3:n===2?600e3:86400e3;lkSet({n,u:Date.now()+w});return fail('Username atau password salah. Terkunci '+lkText(w)+'.')}
+lkSet({n:0,u:0});$('#lp',b).value='';setAdm(true);o.close();toast('Berhasil masuk sebagai admin')};
 $('#lg',b).onclick=go;$$('input',b).forEach(i=>i.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();go()}});
 setTimeout(()=>$('#lu',b).focus(),80)}
 /* ===== TAMBAH KEGIATAN ===== */
@@ -253,7 +291,7 @@ $('#kh').innerHTML=sp('Kegiatan')+' <span style="color:var(--rd)">'+sp('Kami')+'
 ScrollTrigger.config({ignoreMobileResize:true});if(window.Lenis&&matchMedia('(hover:hover)').matches){lenis=new Lenis({duration:1.1,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0)}
 gsap.to('#pg',{scaleX:1,ease:'none',scrollTrigger:{start:0,end:'max',scrub:.3}});
 buildTeam();renderVisi(true);renderKeg(true);reveal($('footer'));teamAnim();heroAnim();
-loadCloud();
+loadCloud();restoreAdm();
 ScrollTrigger.create({trigger:'#visi',start:'top 92%',onEnter:()=>gsap.to('#stack',{autoAlpha:0,duration:.4}),onLeaveBack:()=>gsap.to('#stack',{autoAlpha:1,duration:.4})});
 gsap.from($$('#s1 i'),{yPercent:120,rotationX:-80,transformOrigin:'50% 100%',stagger:.1,duration:1.4,ease:'expo.out'});
 gsap.from('#tag',{opacity:0,y:24,letterSpacing:'.08em',duration:1.5,delay:.9,ease:'expo.out'});gsap.from('.hi',{opacity:0,y:24,duration:1,delay:1.6});gsap.from('.orb',{scale:.3,opacity:0,duration:2,ease:'power3.out'});
